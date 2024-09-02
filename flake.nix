@@ -22,6 +22,12 @@
         in
         {
           packages.default = azure-dev-cli;
+          apps = {
+            default = {
+              type = "app";
+              program = "${azure-dev-cli}/bin/azd";
+            };
+          };
         }
       );
 }
