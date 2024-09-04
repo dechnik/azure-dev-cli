@@ -4,7 +4,7 @@
   fetchurl,
   autoPatchelfHook,
   gh,
-  bicep-cli,
+  bicep,
 }:
 stdenv.mkDerivation rec {
   pname = "azure-dev-cli";
@@ -18,7 +18,7 @@ stdenv.mkDerivation rec {
   nativeBuildInputs = [ autoPatchelfHook ];
 
   buildInputs = [
-    bicep-cli
+    bicep
     gh
   ];
 

@@ -17,15 +17,21 @@
         system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
-          bicep-cli = pkgs.callPackage ./bicep-cli.nix { };
-          azure-dev-cli = pkgs.callPackage ./default.nix { inherit bicep-cli; };
+          azure-dev-cli = pkgs.callPackage ./default.nix { };
         in
         {
-          packages.default = azure-dev-cli;
+          packages = {
+            default = azure-dev-cli;
+            inherit azure-dev-cli;
+          };
           apps = {
             default = {
               type = "app";
               program = "${azure-dev-cli}/bin/azd";
+            };
+            bicep = {
+              type = "app";
+              program = "${pkgs.bicep}/bin/bicep";
             };
           };
         }
