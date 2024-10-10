@@ -8,11 +8,11 @@
 }:
 stdenv.mkDerivation rec {
   pname = "azure-dev-cli";
-  version = "1.10.1";
+  version = "1.10.2";
 
   src = fetchurl {
     url = "https://github.com/Azure/azure-dev/releases/download/azure-dev-cli_${version}/azd-linux-amd64.tar.gz";
-    hash = "sha256-kYOj852X/+tFuQa3S6v21jh8+EqIlGsLBwoipLjDJJA=";
+    hash = "sha256-YxAZYK8FoulWCydodGNXnrDRraQR3J2dS7+pnGSK5+0=";
   };
 
   nativeBuildInputs = [ autoPatchelfHook ];
